@@ -24,12 +24,12 @@ export default function NewProject({ onAddNewProject }) {
   }
 
   return (
-    <div className="flex flex-col">
-      <div>
-        <button>Cancel</button>
+    <div className="w-[35rem] mt-16">
+      <menu className="flex items-center justify-end gap-4 my-4">
+        <button className="text-stone-800 hover:text-stone-950">Cancel</button>
         <Button onClick={handleSubmit}>Save</Button>
-      </div>
-      <div className="flex flex-col mt-24">
+      </menu>
+      <div>
         <Input title="Title" type="text" name="title" onChange={handleData} />
         <Input
           title="Description"

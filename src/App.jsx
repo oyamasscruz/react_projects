@@ -4,13 +4,13 @@ import NewProject from "./components/NewProject";
 import { useState } from "react";
 
 function App() {
-  const [projects, setProjects] = useState({
+  const [projectsState, setProjectsState] = useState({
     stateProjects: undefined,
     projects: [],
   });
 
   function handleProjects() {
-    setProjects((prev) => {
+    setProjectsState((prev) => {
       return {
         ...prev,
         stateProjects: null,
@@ -25,26 +25,29 @@ function App() {
       description: projectData.description,
       date: projectData.date,
     };
-    setProjects((prev) => {
+    setProjectsState((prev) => {
       return {
         ...prev,
         projects: [...prev.projects, newProject],
       };
     });
-    console.log(projectData);
+    console.log(projectsState);
   }
 
   let content;
 
-  if (projects.stateProjects === null) {
+  if (projectsState.stateProjects === null) {
     content = <NewProject onAddNewProject={handleNewProjects} />;
   } else {
     content = <NoProjectSelected onAddProject={handleProjects} />;
   }
 
   return (
-    <main className="w-2/3 mt-24 flex">
-      <SideBar onAddProject={handleProjects} projects={projects.projects} />
+    <main className="h-screen my-8 flex gap-8">
+      <SideBar
+        onAddProject={handleProjects}
+        projects={projectsState.projects}
+      />
       {content}
     </main>
   );
