@@ -28,11 +28,12 @@ function App() {
     setProjectsState((prev) => {
       return {
         ...prev,
+        stateProjects: undefined,
         projects: [...prev.projects, newProject],
       };
     });
-    console.log(projectsState);
   }
+  console.log(projectsState);
 
   let content;
 

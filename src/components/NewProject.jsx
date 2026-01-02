@@ -20,7 +20,6 @@ export default function NewProject({ onAddNewProject }) {
   function handleSubmit(event) {
     event.preventDefault();
     onAddNewProject(dataInputs);
-    console.log(dataInputs);
   }
 
   return (
