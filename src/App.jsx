@@ -9,6 +9,15 @@ function App() {
     projects: [],
   });
 
+  function handleCancelAddProjects() {
+    setProjectsState((prev) => {
+      return {
+        ...prev,
+        stateProjects: undefined,
+      };
+    });
+  }
+
   function handleProjects() {
     setProjectsState((prev) => {
       return {
@@ -38,7 +47,12 @@ function App() {
   let content;
 
   if (projectsState.stateProjects === null) {
-    content = <NewProject onAddNewProject={handleNewProjects} />;
+    content = (
+      <NewProject
+        onAddNewProject={handleNewProjects}
+        onCancel={handleCancelAddProjects}
+      />
+    );
   } else {
     content = <NoProjectSelected onAddProject={handleProjects} />;
   }
