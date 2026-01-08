@@ -9,6 +9,15 @@ function App() {
     projects: [],
   });
 
+  function handleSelectedProject(id) {
+    setProjectsState((prev) => {
+      return {
+        ...prev,
+        stateProjects: id,
+      };
+    });
+  }
+
   function handleCancelAddProjects() {
     setProjectsState((prev) => {
       return {
